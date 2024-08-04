@@ -31,7 +31,7 @@ function Hero() {
       alt="Color mode icon"
       onClick={toggleTheme}
     />
-  </div>
+     </div>
       <img
           src={heroImg}
           className={styles.hero}
@@ -57,10 +57,10 @@ function Hero() {
           </a>
         </span>
         <p className={styles.description}>
-        a skilled Full stack developer with over 2 years of experience in building scalable, user-friendly web applications using modern technologies.
+        A skilled Full stack developer with over 2 years of experience in building scalable, user-friendly web applications using modern technologies.
         </p>
         <a href={CV} download>
-          <button className="hover">Download Resume</button>
+          <button className="hover"> Resume</button>
         </a>
       </div>
     </section>
