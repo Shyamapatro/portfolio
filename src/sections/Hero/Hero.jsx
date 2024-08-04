@@ -60,7 +60,7 @@ function Hero() {
         a skilled Full stack developer with over 2 years of experience in building scalable, user-friendly web applications using modern technologies.
         </p>
         <a href={CV} download>
-          <button className="hover">Resume</button>
+          <button className="hover">Download Resume</button>
         </a>
       </div>
     </section>
