@@ -1,0 +1,40 @@
+git branch     --- check the branch
+git checkout -b "file-upload-bug-fix"    ---create the branch and switch the branch
+git remote -v                  --- check remote repo
+git add .   --- add files 
+git commit -m "file-upload-bug-fix..."     --- commit with message
+git push    --- push the code the github
+git push --set-upstream origin file-upload-bug-fix   --- next after push if get error like this (fatal: The current branch file-upload-bug-fix has no upstream branch.)
+
+
+
+
+
+-------------------------------------------
+
+git log
+
+git log -1 --oneline       ------check last commit
+git reset --hard HEAD~1     ---HEAD~4 for four commit 
+git reset --soft HEAD~1     
+git gc --prune=now          ---The git prune command is an internal housekeeping utility that cleans up unreachable or "orphaned" Git objects. Unreachable objects are those that are inaccessible by any refs. Any commit that cannot be accessed through a branch or tag is considered unreachable. git prune is generally not executed directly.
+git push --force  ---used for reset last push after that 
+
+
+git stash -- newrelic_agent.log
+
+
+
+-----------------------------------------------------------
+Step 1: Clone the repository or update your local repository with the latest changes.
+
+git pull origin staging
+Step 2: Switch to the base branch of the pull request.
+
+git checkout staging
+Step 3: Merge the head branch into the base branch.
+
+git merge change-WeeklySessionReport
+Step 4: Push the changes.
+
+git push -u origin staging
