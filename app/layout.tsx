@@ -60,10 +60,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ebGaramond.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${ebGaramond.variable} ${geistMono.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-[#050505] text-white overflow-x-hidden">
+      <body className="bg-[#050505] text-white overflow-x-hidden selection:bg-white selection:text-black">
         <CommandPalette>
           <CustomCursor />
           <SmoothScrollProvider>

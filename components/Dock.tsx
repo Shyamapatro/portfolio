@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Home, Briefcase, Cpu, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 
-
 const items = [
   { icon: Home, label: "Home", href: "#" },
   { icon: Briefcase, label: "Works", href: "#works" },
@@ -50,7 +49,6 @@ export function Dock() {
         <div className="h-4 w-[1px] bg-white/10 mr-2" />
 
         {items.map((item) => (
-// ... existing map ...
           <a
             key={item.label}
             href={item.href}
@@ -59,7 +57,7 @@ export function Dock() {
             <item.icon className="h-5 w-5 text-white/70 transition-colors group-hover:text-white" />
 
             {/* Tooltip */}
-            <span className="absolute -top-10 scale-0 rounded bg-white px-2 py-1 text-[10px] font-mono text-black transition-all group-hover:scale-100">
+            <span className="absolute -top-10 scale-0 rounded bg-white px-2 py-1 text-[10px] font-mono text-black transition-all group-hover:scale-100 whitespace-nowrap">
               {item.label}
             </span>
           </a>

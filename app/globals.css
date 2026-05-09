@@ -61,6 +61,14 @@
     animation: noise-animation 1s infinite steps(4);
   }
 
+  @media (max-width: 768px) {
+    .noise {
+      inset: 0;
+      opacity: 0.02;
+      animation: none; /* Disable animation on mobile for performance */
+    }
+  }
+
   .grid-pattern {
     background-image: var(--grid-pattern);
     background-size: 40px 40px;

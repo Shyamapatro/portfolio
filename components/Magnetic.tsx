@@ -22,11 +22,17 @@ export function Magnetic({ children, strength = 0.5 }: MagneticProps) {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mediaQuery.matches);
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
     
-    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    setReducedMotion(mediaQuery.matches || mobileQuery.matches);
+    
+    const handler = () => setReducedMotion(mediaQuery.matches || mobileQuery.matches);
     mediaQuery.addEventListener("change", handler);
-    return () => mediaQuery.removeEventListener("change", handler);
+    mobileQuery.addEventListener("change", handler);
+    return () => {
+      mediaQuery.removeEventListener("change", handler);
+      mobileQuery.removeEventListener("change", handler);
+    };
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
