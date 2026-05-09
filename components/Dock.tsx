@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Home, Briefcase, Cpu, Mail, User } from "lucide-react";
+import { Home, Briefcase, Cpu, Mail } from "lucide-react";
+import { useState, useEffect } from "react";
 
 
 const items = [
@@ -12,6 +13,23 @@ const items = [
 ];
 
 export function Dock() {
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setTime(now.toLocaleTimeString("en-US", { 
+        timeZone: "Asia/Kolkata", 
+        hour: "2-digit", 
+        minute: "2-digit",
+        hour12: false 
+      }));
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="fixed bottom-8 left-0 right-0 z-50 flex justify-center px-4">
       <motion.nav
@@ -19,7 +37,20 @@ export function Dock() {
         animate={{ y: 0, opacity: 1 }}
         className="glass flex items-center gap-2 p-2 rounded-2xl"
       >
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/5 mr-2">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+          </span>
+          <span className="font-mono text-[9px] uppercase tracking-wider text-white/50">
+            India • {time}
+          </span>
+        </div>
+
+        <div className="h-4 w-[1px] bg-white/10 mr-2" />
+
         {items.map((item) => (
+// ... existing map ...
           <a
             key={item.label}
             href={item.href}
