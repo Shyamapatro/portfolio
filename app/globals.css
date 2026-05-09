@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+  
+  --color-background: #050505;
+  --color-foreground: #ffffff;
+  
+  --color-glass-bg: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+}
+
+@layer base {
+  :root {
+    --background: #050505;
+    --foreground: #ffffff;
+  }
+
+  * {
+    @apply border-glass-border;
+  }
+
+  body {
+    @apply bg-background text-foreground selection:bg-white selection:text-black;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-glass-bg border border-glass-border backdrop-blur-xl shadow-2xl;
+  }
+  
+  .glass-hover {
+    @apply hover:bg-white/5 transition-all duration-500 ease-out;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent;
+  }
+
+  .noise {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: var(--noise-pattern);
+  }
+
+  .grid-pattern {
+    background-image: var(--grid-pattern);
+    background-size: 40px 40px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a2a;
+}
